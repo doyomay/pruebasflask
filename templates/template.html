@@ -4,11 +4,13 @@
     <title>Welcome to FlaskTaskr!!</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <meta charset="utf8">
   </head>
   <body>
-  <div class="containe">
+  <div class="container">
     <div class="row">
       <div class="page">
+          
         {% for message in get_flashed_messages() %}
           <div class="flash">{{ message }}</div>
         {% endfor %}

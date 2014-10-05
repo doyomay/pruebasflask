@@ -7,12 +7,13 @@
     <table>
       <tr>
         <form action="{{ url_for('new_task') }}" method="post">
+          {{ form.csrf_token }}
           <td>
-            <label>Task Name:</label>
+            <label>Nombre de la tarea:</label>
             <input name="name" type="text">
           </td>
           <td>
-            <label>Due Date (mm/dd/yyyy):</label>
+            <label>Ingrese fecha (mm/dd/yyyy):</label>
             <input name="due_date" type="text" width="120px">
           </td>
           <td>
@@ -74,11 +75,11 @@
     <div class="datagrid">
       <table>
         <thead>
-        <tr>
-          <th width="300px"><strong>Task Name</strong></th>
-          <th width="100px"><strong>Due Date</strong></th>
-          <th width="50px"><strong>Priority</strong></th>
-          <th><strong>Actions</strong></th>
+          <tr>
+            <th width="300px"><strong>Task Name</strong></th>
+            <th width="100px"><strong>Due Date</strong></th>
+            <th width="50px"><strong>Priority</strong></th>
+            <th><strong>Actions</strong></th>
           </tr>
         </thead>
         {% for c in closed_tasks %}
@@ -86,9 +87,9 @@
             <td width="300px">{{ c.name }}</td>
             <td width="100px">{{ c.due_date }}</td>
             <td width="50px">{{ c.priority }}</td>
-          <td>
-            <a href="{{ url_for('delete_entry', task_id = c.task_id) }}">Delete</a>
-          </td>
+            <td>
+              <a href="{{ url_for('delete_entry', task_id = c.task_id) }}">Delete</a>
+            </td>
           </tr>
         {% endfor %}
       </table>

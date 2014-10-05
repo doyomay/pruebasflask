@@ -1,4 +1,4 @@
 #run.py
-#debug=True
+#app.run()
 from views import app
-app.run()
+app.run(debug=True)
